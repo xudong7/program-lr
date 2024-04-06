@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=OWNeCTd7yQE
+
 # include<iostream>
 # include<cstring>
 
@@ -24,12 +26,12 @@ public:
         m_name = new char[m_size + 1];
         memcpy(m_name, other.m_name, m_size);
     }
-    String(String&& other) noexcept // ÓÒÖµÒýÓÃ
+    String(String&& other) noexcept // ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
     {
         cout << "move!" << endl;        
         m_size = other.m_size;
         m_name = other.m_name;
-        // Ïú»Ù¾ÉÖ¸Õë ÒÔ·Àm_name±»Ïú»Ù
+        // ï¿½ï¿½ï¿½Ù¾ï¿½Ö¸ï¿½ï¿½ ï¿½Ô·ï¿½m_nameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         other.m_size = 0;
         other.m_name = nullptr;
     }
@@ -69,7 +71,7 @@ public:
         : m_Name(name)
     {}
     Entry(String&& name)
-        // ÏÔÊ½ÓÒÖµÒýÓÃ
+        // ï¿½ï¿½Ê½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
         : m_Name(move(name))
     {}
     void m_Print()
@@ -82,7 +84,7 @@ int main()
 {
     String apple("apple");
 
-    // ÕâÀï=²»ÊÇ¸³Öµ²Ù×÷ ¶øÊÇ¹¹Ôì²Ù×÷
+    // ï¿½ï¿½ï¿½ï¿½=ï¿½ï¿½ï¿½Ç¸ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     String des = apple;
 
     cout << "apple: ";
@@ -90,7 +92,7 @@ int main()
     cout << "des: ";
     des.Print();
 
-    // ÕâÀï=ÊÇ¸³Öµ²Ù×÷ ÓëÏÂ·½²Ù×÷ÏàÍ¬
+    // ï¿½ï¿½ï¿½ï¿½=ï¿½Ç¸ï¿½Öµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
     // des.operator=(move(apple));
     des = move(apple);
 
