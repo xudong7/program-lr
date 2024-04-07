@@ -33,7 +33,7 @@ Student& func(Student& a)
 
 void func2(Student a)
 {
-    // 不返回类对象 则函数结束立刻析构
+    // 传入类对象 则函数结束立刻析构
     cout << "func2" << endl;
 }
 
@@ -44,12 +44,21 @@ Student func3()
     return c;
 }
 
+Student func4(Student a)
+{
+    // 传入类对象 则函数结束立刻析构
+    cout << "func4" << endl;
+    return a;
+}
+
+
 int main()
 {
     Student s(20);
     Student ret(func(s));
     func2(s);
     Student obj(func3());
+    Student new_obj(func4(s));
     cout << "end" << endl;
     return 0;
 }
