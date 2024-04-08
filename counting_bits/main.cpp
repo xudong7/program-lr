@@ -48,6 +48,15 @@ public:
         
         return ret;
     }
+    
+    vector<int> countBits_2(int n)
+    {
+        // 使用cpp库中的函数__builtin_popcount(unsigned int n)返回n二进制形式中1的数量
+        vector<int> ret(n + 1);
+        for(int i=0;i<n+1;i++)
+            ret[i] = __builtin_popcount(i);
+        return ret;
+    }
 };
 
 
