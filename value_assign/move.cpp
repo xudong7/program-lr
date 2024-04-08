@@ -3,7 +3,7 @@
 using namespace std;
 
 class IntArray {
-    int *a; 
+    int *a; // 指针 深拷贝
     int n;
 public:
     IntArray(int n=1):n(n) {
@@ -14,17 +14,23 @@ public:
     }
     IntArray(IntArray&& other) { //移动构造
         cout << "copy move... p=" << other.a <<endl;
+        // no need to use 'new'
+        // point change just ok
         a = other.a;n = other.n;
+        // old obj nothing 
         other.a = nullptr; other.n=0;
     }
     ~IntArray() {
         cout << "release p=" << a <<endl;
+        // if not empty -> delete
         if (a) delete[] a;
     }
     IntArray& operator = (IntArray&& other) {//移动赋值
         cout << "operator = move p=" << other.a <<endl;
         if (this != &other) {
+            // if not empty -> delete to init
             if (other.a) delete[] a;
+            // same as move constructor
             a = other.a;n = other.n;
             other.a = nullptr; other.n=0; 
         } 
@@ -60,8 +66,8 @@ int main() {
     b.print();
     cout<< "1-----"<<endl;
     c = foo(std::move(b));
-    a.print();
-    b.print();
+    a.print();// a nothing
+    b.print();// b nothing
     c.print();
     cout<< "2-----"<<endl; 
     IntArray d; //d=bar(); //会更高效！
