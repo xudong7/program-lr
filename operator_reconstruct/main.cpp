@@ -11,7 +11,7 @@ public:
     A() = default;
     A(int n) : data(n)
     {
-        cout << "default!" << endl;
+        cout << "value!" << endl;
     }
     A(const A& other) : data(other.data)
     {
