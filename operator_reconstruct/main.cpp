@@ -30,7 +30,7 @@ public:
         // 返回副本
         return A(+data);
     }
-    // 有参数 本身->'operator'->other
+    // 有参数 other为右操作数
     A operator-(const A& other)
     {
         cout << "obj - used!" << endl;
