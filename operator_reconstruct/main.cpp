@@ -62,6 +62,9 @@ public:
     // ¸³Öµ
     A& operator=(const A& other)
     {
+        // if not return A&
+        // we still need to update parameter like this:
+        // data = other.data;
         if(this != &other)
         {
             cout << "= used!" << endl;
