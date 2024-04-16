@@ -91,6 +91,10 @@ public:
     Integer operator - () {
         return Integer(-x);
     }
+    // Integer operator+(const Integer& lhs)
+    // {
+    //     return Integer(x + lhs.x);
+    // }
     void print() {
         cout<<x<<endl;
     }
@@ -100,6 +104,7 @@ public:
     }
 };
 
+// 左操作数不是类对象 需要类外定义
 Integer operator+(const Integer& lhs,const Integer& 
 rhs) { 
     // 当为class且在类外定义时 若想访问private 需要调用public函数得到
@@ -127,6 +132,7 @@ void test3()
     Integer a=3,b,c;
     //任务1：解释两个赋值语句，哪些函数被调用
     b = a + 4;
+    // 左操作数不是类对象 需要类外定义
     c = 5 + a;
     b.print();
     c.print(); 
