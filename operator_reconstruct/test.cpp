@@ -98,6 +98,14 @@ public:
     void print() {
         cout<<x<<endl;
     }
+    friend ostream& operator<<(ostream& o, const Integer &hs) {
+        o << "const " << hs.x;
+        return o;
+    } 
+    friend ostream& operator<<(ostream& o, Integer &hs) {
+        o << "no_const " << hs.x ;
+        return o;
+    }
     int getX() const
     {
         return x;
@@ -140,12 +148,20 @@ void test3()
     cout << "----test3 end----" << endl;
 }
 
+void test4()
+{
+    Integer i1(1);
+    const Integer i2(2);
+    cout << i1 << "," << 3 << "," << i2 << endl;
+}
+
 int main()
 {
 
     // test1();
     // test2();
-    test3();
+    // test3();
+    test4();
 
     return 0;
 }
